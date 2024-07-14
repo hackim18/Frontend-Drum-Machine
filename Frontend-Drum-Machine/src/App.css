@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #282c34;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#drum-machine {
+  background-color: #1c1e22;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  width: 90%;
+  display: grid;
+  grid-template-areas:
+    "display display"
+    "pads pads"
+    "controls controls";
+  gap: 20px;
+}
+
+#display {
+  grid-area: display;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.drum-pads {
+  grid-area: pads;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.drum-pad {
+  background-color: #555;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-pad:hover {
+  background-color: #777;
+}
+
+.drum-pad:active {
+  background-color: #999;
+}
+
+.controls {
+  grid-area: controls;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.volume-control input {
+  width: 100%;
+}
+
+.bank-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-switch:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle-switch.active {
+  background-color: #555;
+}
+
+.toggle-switch.active:before {
+  transform: translateX(26px);
+}
+
+@media (max-width: 600px) {
+  .drum-pads {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .drum-pad {
+    padding: 15px;
+    font-size: 1em;
+    width: 80px;
+    height: 80px;
+  }
+
+  #display {
+    font-size: 1em;
+    min-height: 60px;
+  }
+}
